@@ -2,11 +2,11 @@
 
 Contact: [Daniel Falster](http://danielfalster.com/)
 
-This repository contains all the code used to produce figures in the manuscript:
+This repository contains all the code used to produce figures in the preprint:
 
 Falster, D.S., Brännström, Å., Westoby, M. & Dieckmann, U. (2015) Multi-trait eco-evolutionary dynamics explain niche diversity and evolved neutrality in forests. *bioRxiv*, 014605. [10.1101/014605](http://doi.org/10.1101/014605)
 
-currently in review at *Science Advances*. Similar code was used to generate results of 
+currently in review at *PNAS*. Similar code was used to generate results of 
 
 Falster, D.S., Brännström, Å., Dieckmann, U. & Westoby, M. (2011) Influence of four major plant traits on average height, leaf-area cover, net primary productivity, and biomass density in single-species forests: a theoretical investigation. *Journal of Ecology*, 99, 148–164. doi: [10.1111/j.1365-2745.2010.01735.x](http://doi.org/10.1111/j.1365-2745.2010.01735.x)
 
