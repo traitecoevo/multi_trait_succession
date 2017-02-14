@@ -9,14 +9,32 @@ for v in -2.000 -1.925 -1.850 -1.775 -1.700 -1.625 -1.550 -1.475 -1.400 -1.325 -
 		nohup src/evolve -p $p -d $d -t $t -v $v > output/out/trait-$t.[$d,$p]-$v.txt 2>&1 &
 	done
 
+## Run pairwise invasibility plots
+d=60
+t=1
+p=1
+for v in -0.2 0.325 0.625;
+	do
+		nohup src/PIP -V 0 -p $p -d $d -t $t -v $v > output/out/PIP-$t.[$d,$p]-$v.txt 2>&1 &
+done
+
 
 ## Runs simulations for LCC, holding HSP constant, 40 processes about 4 days each
-
 d=60
 p=1
 t=0
 for v in -0.20000 -0.15375 -0.10750 -0.06125 -0.01500  0.03125  0.07750  0.12375  0.17000  0.21625  0.26250  0.30875  0.35500  0.40125  0.44750  0.49375  0.54000  0.58625  0.63250 0.67875  0.72500  0.77125  0.81750  0.86375  0.91000  0.95625  1.00250  1.04875  1.09500  1.14125  1.18750  1.23375  1.28000  1.32625  1.37250  1.41875  1.46500  1.51125 1.55750  1.60375  1.65000; do   # 40  calls  R command, seq(-0.2, 1.65, length.out=41)  # test for v in -1 0 1.4; do
 	nohup src/evolve -p $p -d $d -t $t -v $v > output/out/trait-$t.[$d,$p]-$v.txt 2>&1 &
+done
+
+## Run pairwise invasibility plots
+d=60
+t=0
+p=1
+for v in 0.8175 1.3725 1.5575;
+	do
+		nohup src/PIP -V 0 -p $p -d $d -t $t -v $v  > output/out/PIP-$t.[$d,$p]-$v.txt 2>&1 &
+  done
 done
 
 
@@ -69,3 +87,16 @@ x=16
 for a in 0.2 0.4 0.6 0.8; do 
 	nohup src/evolve -V 1 -p $p -d $d -x $x -a $a -t $t -v $v > output/out2/trait-$t.[$d,$p]-$v-elas-x$x-a$a.txt 2>&1 &
 done
+
+## Runs simulations for HSP, varying mutation rate
+d=60
+p=1
+t=1
+v=0.625
+for i in 0.01 0.1 1;
+	do
+		nohup src/evolve -p $p -d $d -t $t -v $v -I $i> output/out2/trait-$t.[$d,$p]-$v-$i.txt 2>&1 &
+	done
+
+## Runs simulations for HSP, start with populated community and turn off mutations
+nohup src/resolve -f 'output/data2/[60,1]/hsp/[0.625]/tmp/' -s 1199 -t 1 > output/out2/resolve-[60,1]-hsp-[0.625].txt 2>&1 &

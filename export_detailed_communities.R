@@ -109,9 +109,14 @@ for(p in file.path(base.dir,
     landscape=NA, resolution=1, reprocess=FALSE, viability=0, step=5001)
 }
 
-for(p in c(file.path(base.dir,"[60,1]","lcc", "[1.3725]/base"),
-		 file.path(base.dir,"[60,1]", "hsp", "[0.625]/base")) ) {
+for(p in file.path(base.dir,"[60,1]","lcc", "[1.3725]/base")) {
 	printFinalCommunity(inputDir = p,
 		outputDir = gsub("output/data", "output/finalCommunities",p),
 		landscape=NA, resolution=1, reprocess=FALSE, viability=0, step=1001,  h=0.02, threshold=0.5)
+}
+
+for(p in file.path(base.dir,"[60,1]", "hsp", "[0.625]/base")) {
+  printFinalCommunity(inputDir = p,
+    outputDir = gsub("output/data", "output/finalCommunities",p),
+    landscape=NA, resolution=1, reprocess=FALSE, viability=0, step=3500,  h=0.02, threshold=0.5)
 }

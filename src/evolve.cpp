@@ -1,4 +1,3 @@
-
 #include <cstdio>
 #include <string>
 #include <cstring>
@@ -16,7 +15,6 @@ void reset_array22(double Array[2][2], double X00, double X01, double X10, doubl
 
 namespace
 {
-// Date of this version: 2006-03-29
 	const char * invocation_name = 0;
 	const char * const Program_name    = "E";
 }

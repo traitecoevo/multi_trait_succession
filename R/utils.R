@@ -48,7 +48,6 @@ make.transparent <- function(col, opacity = 0.5) {
   }
 }
 
-
 # returns index of 2D matrix m[i,j] when read as 1D vector
 matrixIndexAsVectorIndex <- function(i, j, ncol) {
   (i - 1) * ncol + j
@@ -61,14 +60,14 @@ collapse.grid <- function(data) {
 
   # find dimensions of X and Y vectors
   ncol <- match(FALSE, data$y[2:length(data$y)] > data$y[1:(length(data$y) - 1)])
-  nrow <- length(data$x)/ncol
+  nrow <- as.integer(length(data$x)/ncol)
   # extract x and y vectors
   out <- NULL
   out$y <- data$y[1:ncol]
   out$x <- data$x[ncol * seq(0, (nrow - 1)) + 1]
 
   # reshape Z data into matrix
-  out$z <- matrix(data$z, ncol = ncol, nrow = nrow, byrow = TRUE)
+  out$z <- matrix(data$z[seq_len(ncol*nrow)], ncol = ncol, nrow = nrow, byrow = TRUE)
   out
 }
 
