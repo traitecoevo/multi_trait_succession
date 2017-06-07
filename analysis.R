@@ -54,7 +54,7 @@ for (i in seq_along(D)) {
   data <- figure_get_example_patch(D[i], Prod[i], Scale[i])
   figure_plot_patch(data)
   rgl.viewpoint(0, -65, fov = 0, scale = c(1, 1, 0.8), zoom = 0.8)
-  filename <- file.path("output/figures/fig5b-", paste0("[",D[i],",",Prod[i],"].png"))
+  filename <- paste0("output/figures/fig5b-[",D[i],",",Prod[i],"].png")
   snapshot3d(filename)
   rgl.close()
 }
